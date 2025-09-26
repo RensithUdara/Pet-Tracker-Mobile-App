@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/app_constants.dart';
 
 class PetLogo extends StatelessWidget {
@@ -18,7 +19,7 @@ class PetLogo extends StatelessWidget {
         Container(
           width: size,
           height: size,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: AppColors.secondary,
             shape: BoxShape.circle,
           ),
@@ -79,12 +80,12 @@ class PetLogo extends StatelessWidget {
         ),
         if (showTitle) ...[
           const SizedBox(height: AppDimensions.paddingMedium),
-          Text(
+          const Text(
             'PetCare',
             style: AppTextStyles.heading1,
           ),
           const SizedBox(height: 8),
-          Text(
+          const Text(
             'Loving care for your furry friends',
             style: AppTextStyles.subtitle1,
             textAlign: TextAlign.center,
