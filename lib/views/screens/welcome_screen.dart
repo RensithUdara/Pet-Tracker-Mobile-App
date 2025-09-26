@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../controllers/auth_controller.dart';
 import '../../utils/app_constants.dart';
 import '../widgets/custom_button.dart';
@@ -19,12 +20,12 @@ class WelcomeScreen extends StatelessWidget {
           child: Column(
             children: [
               const Spacer(flex: 2),
-              
+
               // Logo and title
               const PetLogo(size: 140),
-              
+
               const SizedBox(height: AppDimensions.paddingXLarge),
-              
+
               // Feature icons
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -33,7 +34,7 @@ class WelcomeScreen extends StatelessWidget {
                   Container(
                     width: 80,
                     height: 80,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: AppColors.primary,
                       shape: BoxShape.circle,
                     ),
@@ -46,9 +47,9 @@ class WelcomeScreen extends StatelessWidget {
                   _buildFeatureIcon(Icons.pets, AppColors.primary),
                 ],
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Small paw prints
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -66,9 +67,9 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              
+
               const Spacer(flex: 1),
-              
+
               // App name and subtitle
               Text(
                 'PetCare',
@@ -76,17 +77,17 @@ class WelcomeScreen extends StatelessWidget {
                   fontSize: 36,
                 ),
               ),
-              
+
               const SizedBox(height: 8),
-              
-              Text(
+
+              const Text(
                 'Simple pet management for busy pet parents',
                 style: AppTextStyles.subtitle1,
                 textAlign: TextAlign.center,
               ),
-              
+
               const SizedBox(height: AppDimensions.paddingXLarge),
-              
+
               // Feature cards
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -108,18 +109,18 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              
+
               const SizedBox(height: AppDimensions.paddingXLarge),
-              
+
               // Description
-              Text(
+              const Text(
                 'Keep your furry friends healthy and happy with\nsimple tracking tools and smart reminders.',
                 style: AppTextStyles.body2,
                 textAlign: TextAlign.center,
               ),
-              
+
               const Spacer(flex: 2),
-              
+
               // Get Started button
               CustomButton(
                 text: 'Get Started',
@@ -134,9 +135,9 @@ class WelcomeScreen extends StatelessWidget {
                 },
                 icon: const Icon(Icons.arrow_forward, color: Colors.white),
               ),
-              
+
               const SizedBox(height: AppDimensions.paddingMedium),
-              
+
               // Skip for now
               TextButton(
                 onPressed: () {
@@ -148,12 +149,12 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'Skip for now',
                   style: AppTextStyles.body2,
                 ),
               ),
-              
+
               const SizedBox(height: AppDimensions.paddingLarge),
             ],
           ),
