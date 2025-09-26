@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/app_constants.dart';
 
 class CustomButton extends StatelessWidget {
@@ -38,9 +39,11 @@ class CustomButton extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 side: const BorderSide(color: AppColors.primary),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(AppDimensions.borderRadius),
+                  borderRadius:
+                      BorderRadius.circular(AppDimensions.borderRadius),
                 ),
-                textStyle: AppTextStyles.button.copyWith(color: AppColors.primary),
+                textStyle:
+                    AppTextStyles.button.copyWith(color: AppColors.primary),
               ),
             )
           : ElevatedButton.icon(
@@ -60,7 +63,8 @@ class CustomButton extends StatelessWidget {
                 backgroundColor: AppColors.primary,
                 foregroundColor: AppColors.onPrimary,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(AppDimensions.borderRadius),
+                  borderRadius:
+                      BorderRadius.circular(AppDimensions.borderRadius),
                 ),
                 textStyle: AppTextStyles.button,
                 elevation: 0,
