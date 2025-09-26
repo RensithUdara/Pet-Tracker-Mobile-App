@@ -21,12 +21,11 @@ class User {
       email: json['email'],
       name: json['name'],
       profileImageUrl: json['profileImageUrl'],
-      createdAt: json['createdAt'] != null 
-        ? DateTime.parse(json['createdAt']) 
-        : null,
-      lastLoginAt: json['lastLoginAt'] != null 
-        ? DateTime.parse(json['lastLoginAt']) 
-        : null,
+      createdAt:
+          json['createdAt'] != null ? DateTime.parse(json['createdAt']) : null,
+      lastLoginAt: json['lastLoginAt'] != null
+          ? DateTime.parse(json['lastLoginAt'])
+          : null,
     );
   }
 
