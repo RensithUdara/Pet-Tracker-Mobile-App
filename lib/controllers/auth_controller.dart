@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/user.dart';
 
 enum AuthState { initial, loading, authenticated, unauthenticated, error }
@@ -17,27 +18,27 @@ class AuthController extends ChangeNotifier {
 
   Future<bool> signIn(String email, String password) async {
     _setState(AuthState.loading);
-    
+
     try {
       // Simulate API call delay
       await Future.delayed(const Duration(seconds: 2));
-      
+
       // Basic validation
       if (email.isEmpty || password.isEmpty) {
         _setError('Email and password are required');
         return false;
       }
-      
+
       if (!_isValidEmail(email)) {
         _setError('Please enter a valid email address');
         return false;
       }
-      
+
       if (password.length < 6) {
         _setError('Password must be at least 6 characters');
         return false;
       }
-      
+
       // Simulate successful login
       _currentUser = User(
         id: '1',
@@ -46,44 +47,44 @@ class AuthController extends ChangeNotifier {
         createdAt: DateTime.now(),
         lastLoginAt: DateTime.now(),
       );
-      
+
       _setState(AuthState.authenticated);
       return true;
-      
     } catch (e) {
       _setError('Login failed. Please try again.');
       return false;
     }
   }
 
-  Future<bool> signUp(String email, String password, String confirmPassword) async {
+  Future<bool> signUp(
+      String email, String password, String confirmPassword) async {
     _setState(AuthState.loading);
-    
+
     try {
       // Simulate API call delay
       await Future.delayed(const Duration(seconds: 2));
-      
+
       // Validation
       if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
         _setError('All fields are required');
         return false;
       }
-      
+
       if (!_isValidEmail(email)) {
         _setError('Please enter a valid email address');
         return false;
       }
-      
+
       if (password.length < 6) {
         _setError('Password must be at least 6 characters');
         return false;
       }
-      
+
       if (password != confirmPassword) {
         _setError('Passwords do not match');
         return false;
       }
-      
+
       // Simulate successful registration
       _currentUser = User(
         id: '1',
@@ -92,10 +93,9 @@ class AuthController extends ChangeNotifier {
         createdAt: DateTime.now(),
         lastLoginAt: DateTime.now(),
       );
-      
+
       _setState(AuthState.authenticated);
       return true;
-      
     } catch (e) {
       _setError('Registration failed. Please try again.');
       return false;
@@ -133,7 +133,7 @@ class AuthController extends ChangeNotifier {
     // This could be stored in shared preferences
     return false; // For now, always show welcome screen
   }
-  
+
   void completeOnboarding() {
     // Save onboarding completion status
     notifyListeners();
