@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../utils/app_constants.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -63,7 +64,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
           readOnly: widget.readOnly,
           style: AppTextStyles.body1,
           decoration: InputDecoration(
-            hintText: widget.hintText ?? 'Enter your ${widget.labelText.toLowerCase()}',
+            hintText: widget.hintText ??
+                'Enter your ${widget.labelText.toLowerCase()}',
             hintStyle: AppTextStyles.body1.copyWith(
               color: AppColors.textHint,
             ),
