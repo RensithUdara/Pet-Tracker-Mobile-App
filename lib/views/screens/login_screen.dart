@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../controllers/auth_controller.dart';
 import '../../utils/app_constants.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/pet_logo.dart';
-import 'sign_up_screen.dart';
 import 'home_screen.dart';
+import 'sign_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -41,12 +42,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   children: [
                     const SizedBox(height: AppDimensions.paddingXLarge),
-                    
+
                     // Logo
                     const PetLogo(size: 120),
-                    
+
                     const SizedBox(height: AppDimensions.paddingXLarge),
-                    
+
                     // Welcome back title
                     Text(
                       'WELCOME BACK',
@@ -55,9 +56,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    
+
                     const SizedBox(height: AppDimensions.paddingXLarge),
-                    
+
                     // Email field
                     CustomTextField(
                       labelText: 'Email',
@@ -74,9 +75,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         return null;
                       },
                     ),
-                    
+
                     const SizedBox(height: AppDimensions.paddingLarge),
-                    
+
                     // Password field
                     CustomTextField(
                       labelText: 'Password',
@@ -93,23 +94,27 @@ class _LoginScreenState extends State<LoginScreen> {
                         return null;
                       },
                     ),
-                    
+
                     const SizedBox(height: AppDimensions.paddingLarge),
-                    
+
                     // Error message
                     if (authController.state == AuthState.error)
                       Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.all(AppDimensions.paddingMedium),
-                        margin: const EdgeInsets.only(bottom: AppDimensions.paddingLarge),
+                        padding:
+                            const EdgeInsets.all(AppDimensions.paddingMedium),
+                        margin: const EdgeInsets.only(
+                            bottom: AppDimensions.paddingLarge),
                         decoration: BoxDecoration(
                           color: AppColors.error.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(AppDimensions.borderRadius),
-                          border: Border.all(color: AppColors.error.withOpacity(0.3)),
+                          borderRadius:
+                              BorderRadius.circular(AppDimensions.borderRadius),
+                          border: Border.all(
+                              color: AppColors.error.withOpacity(0.3)),
                         ),
                         child: Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.error_outline,
                               color: AppColors.error,
                               size: 20,
@@ -126,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ],
                         ),
                       ),
-                    
+
                     // Sign In button
                     CustomButton(
                       text: 'Sign In',
@@ -134,14 +139,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       isLoading: authController.isLoading,
                       icon: const Icon(Icons.pets, color: Colors.white),
                     ),
-                    
+
                     const Spacer(),
-                    
+
                     // Sign up link
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Don\'t have an account? ',
                           style: AppTextStyles.body2,
                         ),
@@ -164,7 +169,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ],
                     ),
-                    
+
                     const SizedBox(height: AppDimensions.paddingLarge),
                   ],
                 ),
@@ -180,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (_formKey.currentState!.validate()) {
       final authController = context.read<AuthController>();
       authController.clearError();
-      
+
       final success = await authController.signIn(
         _emailController.text.trim(),
         _passwordController.text,
