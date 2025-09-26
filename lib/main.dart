@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'controllers/auth_controller.dart';
 import 'utils/app_constants.dart';
-import 'views/screens/welcome_screen.dart';
 import 'views/screens/login_screen.dart';
+import 'views/screens/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
